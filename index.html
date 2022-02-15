@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock Paper Scissors</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+  <script>
+
+      function computerPlay() {
+          let pickNum = Math.floor(Math.random() * 3);
+
+          switch(pickNum) {
+              case 0:
+                return "rock";
+              case 1:
+                return "paper";
+              case 2:
+                return "scissors";
+              default:
+                return undefined;
+          }
+
+      }
+
+      function getPlayerInput() {
+          
+          while (true) {
+            let playerInput = prompt("Enter your selection: \"rock\", \"paper\", or \"scissors\".").toLocaleLowerCase();
+
+            if (playerInput == 'rock' || playerInput == 'paper' || playerInput == 'scissors') {
+                return playerInput;
+            } else {
+                alert("Invalid Input. Try again.");
+            }
+
+          }
+          
+      }
+
+      function playRound(playerSelection, computerSelection) {
+
+          let selectionOverview = `You played: ${playerSelection}.\nCPU played: ${computerSelection}.\n`;
+
+          if ((playerSelection == 'rock' && computerSelection == 'scissors') || 
+              (playerSelection == 'scissors' && computerSelection == 'paper') || 
+              (playerSelection == 'paper' && computerSelection == 'rock')) {
+
+                  alert(selectionOverview + "You win!!");
+                  return "player";
+
+          } else if ((playerSelection == 'paper' && computerSelection == 'scissors') || 
+              (playerSelection == 'rock' && computerSelection == 'paper') || 
+              (playerSelection == 'scissors' && computerSelection == 'rock')) {
+
+                  alert(selectionOverview + "CPU wins!!");
+                  return "cpu";
+
+          } else {
+
+              alert(selectionOverview + "The match is a draw!!");
+              return undefined;
+
+          }
+
+      }
+
+      function game() {
+          alert("Welcome to Rock Paper Scissors. You will play 5 rounds against the CPU and a winner will be reported at the end.");
+          let playerScore = 0;
+          let cpuScore = 0;
+          for (let n = 0; n < 5; n++) {
+              let result = playRound(getPlayerInput(), computerPlay());
+              if (result == 'player') {
+                  playerScore++;
+              } else if (result == 'cpu') {
+                  cpuScore++;
+              }
+          }
+
+          let totalResults = `Your score: ${playerScore}.\nCPU score: ${cpuScore}.\n`;
+
+          if (playerScore > cpuScore) {
+              alert(totalResults + "You Win!!");
+          } else if (cpuScore > playerScore) {
+              alert(totalResults + "CPU Wins!!");
+          } else {
+              alert(totalResults + "It's a tie!");
+          }
+
+      }
+
+      game();
+
+
+      
+  </script>
+
+  <h1>Refresh the page to play again.</h1>
+</body>
+</html>
