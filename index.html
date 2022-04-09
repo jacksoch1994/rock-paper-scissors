@@ -3,99 +3,63 @@
 <head>
   <title>Rock Paper Scissors</title>
   <meta charset="UTF-8"/>
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <script>
+    <div id="game">
 
-      function computerPlay() {
-          let pickNum = Math.floor(Math.random() * 3);
+        <h1>Rock, Paper, Scissors!</h1>
 
-          switch(pickNum) {
-              case 0:
-                return "rock";
-              case 1:
-                return "paper";
-              case 2:
-                return "scissors";
-              default:
-                return undefined;
-          }
+        <div id="display">
 
-      }
+            <h2 id="round-counter">ROUND <span id="round">1</span> OF 5</h2>
 
-      function getPlayerInput() {
-          
-          while (true) {
-            let playerInput = prompt("Enter your selection: \"rock\", \"paper\", or \"scissors\".").toLocaleLowerCase();
+            <div id="staging-area">
 
-            if (playerInput == 'rock' || playerInput == 'paper' || playerInput == 'scissors') {
-                return playerInput;
-            } else {
-                alert("Invalid Input. Try again.");
-            }
+                <div id="player-staging">
+                    <h3>PLAYER</h3>
+                    <div id="player-choice" class="unknown"></div>
+                </div>
 
-          }
-          
-      }
+                <div id="result-indicator">=</div>
 
-      function playRound(playerSelection, computerSelection) {
+                <div id="cpu-staging">
+                    <div id="cpu-choice" class="unknown"></div>
+                    <h3>CPU</h3>
+                </div>
 
-          let selectionOverview = `You played: ${playerSelection}.\nCPU played: ${computerSelection}.\n`;
+            </div>
 
-          if ((playerSelection == 'rock' && computerSelection == 'scissors') || 
-              (playerSelection == 'scissors' && computerSelection == 'paper') || 
-              (playerSelection == 'paper' && computerSelection == 'rock')) {
+            <div id="results">Make your selection to begin!</div>
 
-                  alert(selectionOverview + "You win!!");
-                  return "player";
+            <div id="scoreboard">
 
-          } else if ((playerSelection == 'paper' && computerSelection == 'scissors') || 
-              (playerSelection == 'rock' && computerSelection == 'paper') || 
-              (playerSelection == 'scissors' && computerSelection == 'rock')) {
+                <div id="player-score-area">
+                    <h4>Player Score:</h2>
+                    <h4 id="player-score">0</h2>
+                </div>
 
-                  alert(selectionOverview + "CPU wins!!");
-                  return "cpu";
+                <div id="cpu-score-area">
+                    <h4>CPU Score:</h2>
+                    <h4 id="cpu-score">0</h2>
+                </div>
 
-          } else {
+            </div>
 
-              alert(selectionOverview + "The match is a draw!!");
-              return undefined;
-
-          }
-
-      }
-
-      function game() {
-          alert("Welcome to Rock Paper Scissors. You will play 5 rounds against the CPU and a winner will be reported at the end.");
-          let playerScore = 0;
-          let cpuScore = 0;
-          for (let n = 0; n < 5; n++) {
-              let result = playRound(getPlayerInput(), computerPlay());
-              if (result == 'player') {
-                  playerScore++;
-              } else if (result == 'cpu') {
-                  cpuScore++;
-              }
-          }
-
-          let totalResults = `Your score: ${playerScore}.\nCPU score: ${cpuScore}.\n`;
-
-          if (playerScore > cpuScore) {
-              alert(totalResults + "You Win!!");
-          } else if (cpuScore > playerScore) {
-              alert(totalResults + "CPU Wins!!");
-          } else {
-              alert(totalResults + "It's a tie!");
-          }
-
-      }
-
-      game();
+        </div>
 
 
-      
-  </script>
+        <div id="buttons">
+            <button class="rock" id="rock"></button>
+            <button class="paper" id="paper"></button>
+            <button class="scissors" id="scissors"></button>
+        </div>
 
-  <h1>Refresh the page to play again.</h1>
+        <h5 id="prompt"></h5>
+
+
+    </div>
+   
 </body>
 </html>

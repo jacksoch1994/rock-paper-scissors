@@ -1,0 +1,123 @@
+#game {
+    width: 560px;
+    height: 560px;
+    border: 12px solid black;
+    border-radius: 60px;
+    margin:auto;
+    background-color: black;
+}
+
+h1 {
+    text-align: center;
+    font-family: sans-serif;
+    color: white;
+}
+
+#display {
+    border-top: 8px solid black;
+    border-bottom: 8px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 300px;
+    background-color: white;
+}
+
+#round-counter {
+    text-align: center;
+}
+
+h3, h4, #result-indicator, #player-staging, #cpu-staging {
+    display: inline-block;
+}
+
+#player-staging, #cpu-staging {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+#staging-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#player-choice, #cpu-choice {
+    height: 100px;
+    width: 100px;
+    border: 3px solid black;
+    border-radius: 12px;
+}
+
+#staging-area h3 {
+    width: 100px;
+    text-align: center;
+}
+
+#result-indicator {
+    font-size: 42px;
+    font-weight: 800;
+}
+
+#scoreboard {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#results {
+    text-align: center;
+    font-size: 42px;
+    height: 46px;
+}
+
+button {
+    height: 100px;
+    width: 100px;
+    border: 3px solid black;
+    border-radius: 12px;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+    gap: 16px;
+}
+
+.rock {
+    background-image: url("rock.jpeg");
+    background-size: 100px;
+}
+
+.paper {
+    background-image: url("paper.jpeg");
+    background-size: 100px;
+}
+
+.scissors {
+    background-image: url("scissors.jpeg");
+    background-size: 100px;
+}
+
+.unknown {
+    background-image: url("question-mark.png");
+    background-size: 100px;
+}
+
+.inactive {
+    filter: grayscale(100%);
+};
+
+#round {
+    display: inline-block;
+}
+
+#prompt {
+    text-align: center;
+    color: white;
+    margin: auto;
+    margin-top: 6px;
+    font-size: 20px;
+}
